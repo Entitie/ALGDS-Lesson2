@@ -2,3 +2,18 @@
 # его отгадать не более чем за 10 попыток. После каждой неудачной попытки должно
 # сообщаться больше или меньше введенное пользователем число, чем то, что загадано.
 # Если за 10 попыток число не отгадано, то вывести загаданное число.
+import random
+
+random_number = random.randrange(100)
+user_number = int(input('Угадайте случайное число от 0 до 100: '))
+
+for _ in range(9):
+    if user_number == random_number:
+        print('Поздравляю, вы угадали загаданное число!')
+        break
+    elif user_number > random_number:
+        user_number = int(input('Загаданное число меньше вашего, попробуйте ещё раз: '))
+    elif user_number < random_number:
+        user_number = int(input('Загаданное число больше вашего, попробуйте ещё раз: '))
+else:
+    print(f'Вам не удалось отгадать загаданное число, это было число {random_number}')
